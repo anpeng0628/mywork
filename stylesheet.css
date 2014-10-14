@@ -82,3 +82,8 @@ wifidog/media/base_theme/stylesheet.css.  This theme pack should only override t
 #photowall img {
     width: 100%;
 }
+
+*{
+    text-algin: center;
+}
+
