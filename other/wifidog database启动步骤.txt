@@ -1,0 +1,35 @@
+groupadd wifidog
+useradd -g wifidog wifidog
+mkdir -p /usr/local/pgsql/data
+mkdir -p /usr/local/pgsql/log
+touch  /usr/local/pgsql/log/pgsql.log
+chown -R wifidog:wifidog /usr/local/pgsql/data
+chown -R wifidog:wifidog /usr/local/pgsql/log
+chown -R wifidog:wifidog /usr/local/pgsql/log/pgsql.log
+	 /tmp
+createuser -sADEP wifidog
+su wifidog
+./initdb -D /usr/local/pgsql/data
+/usr/bin/pg_ctl -D /usr/local/pgsql/data -l logfile start  ./postmaster -D /usr/local/pgsql/data
+createdb wifidog --encoding=UTF-8 --owner=wifidog
+
+Database Access Configuration
+Host	localhost
+Port	5432
+DB Name	 wifidog
+Username  wifidog
+Password  wifidog	
+
+chown username  file （改用户）
+chgrp grpname  file  （改用户组）
+chown -R user ../trunk/ 
+
+createuser wifidog --pwprompt
+createdb wifidog --encoding=UTF-8 --owner=wifidog
+./initdb -D /var/lib/pgsql/data
+
+./pg_ctl -D /usr/local/srv/pgsql/data start 
+
+
+paiwode haohaoxuexi  photowall.wireless-world.cn/admin
+
